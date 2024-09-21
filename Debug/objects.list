@@ -1,6 +1,7 @@
 "./BlueNRG-2/Target/hci_tl_interface.o"
 "./Core/Src/app_bluenrg.o"
 "./Core/Src/main.o"
+"./Core/Src/services.o"
 "./Core/Src/stm32f4xx_hal_msp.o"
 "./Core/Src/stm32f4xx_it.o"
 "./Core/Src/stm32f4xx_nucleo_bus.o"

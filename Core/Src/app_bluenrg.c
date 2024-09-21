@@ -26,12 +26,14 @@ void bluenrg_init(void)
 	BLUENRG_memcpy(bdaddre,SERVER_BDARR,sizeof(SERVER_BDARR));
 	uint16_t service_handle, dev_name_char_handle,appearance_char_handle;
 
+	// Initialize the BlueNRG hardware and BLE stack
 	//* 1.Initialize HCI
-	hci_init(0,0);
+	hci_init(APP_UserEvtRx,0);
 	//* 2.Reset HCI
 	hci_reset();
 	HAL_Delay(100);
 
+	// Set the Bluetooth device address
 	//* 3.Configure Device address
 	ret=aci_hal_write_config_data(CONFIG_DATA_PUBADDR_OFFSET,CONFIG_DATA_PUBADDR_LEN, bdaddre);
 	if(ret !=BLE_STATUS_SUCCESS){printf("aci_hal_write_config_data failed \r\n");}
@@ -64,5 +66,8 @@ void bluenrg_process(void)
 								local_name,
 								0, NULL, 0, 0);
 
-	if(ret !=BLE_STATUS_SUCCESS){printf("aci_gap_set_discoverable failed \r\n");}
+	//if(ret !=BLE_STATUS_SUCCESS){printf("aci_gap_set_discoverable failed \r\n");}
+
+	//process user events
+	hci_user_evt_proc();
 }
