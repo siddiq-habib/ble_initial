@@ -16,7 +16,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 
-tBleStatus add_simple_service(void);
+tBleStatus add_services(void);
 void APP_UserEvtRx(void *pData);
 
 

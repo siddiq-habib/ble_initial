@@ -48,7 +48,7 @@ void bluenrg_init(void)
 	if(ret !=BLE_STATUS_SUCCESS){printf("aci_gatt_update_char_value failed \r\n");}
 
 	//* 7.Add custom service
-	ret = add_simple_service();
+	ret = add_services();
 	if(ret !=BLE_STATUS_SUCCESS){printf("add_simple_service failed \r\n");}
 }
 
